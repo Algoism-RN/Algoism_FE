@@ -7,6 +7,8 @@ export const RowWrapper = styled.View`
 
   display: flex;
   flex-direction: row;
+
+  background-color: ${(props) => props.theme.background};
 `;
 
 // 세로 정렬 Full View
@@ -16,4 +18,6 @@ export const ColumnWrapper = styled.View`
 
   display: flex;
   flex-direction: column;
+
+  background-color: ${(props) => props.theme.background};
 `;
