@@ -1,34 +1,33 @@
 import React, { useState, useEffect } from "react";
-
+import { ActivityIndicator, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeProvider } from "styled-components/native";
-import { useColorScheme } from "react-native";
 
+import { Loading } from "./components/Loading/Loading";
 import { Main } from "./screens/Main/Main";
-import { lightTheme, darkTheme } from "./styles/theme";
+import { useTheme } from "./Hooks/useTheme";
+import { useFont } from "./Hooks/useFont";
 
-// Stack Navigatior 객체 생성
+// Stack Navigator 객체 생성
 const Stack = createNativeStackNavigator();
 
 export default function App() {
-  // 시스템 테마 조회
-  const systemTheme = useColorScheme();
+  // 테마 설정하는 커스텀 Hook 호출
+  const { theme } = useTheme();
 
-  // 시스템 테마에 따라 각각의 테마를 theme 변수에 저장
-  const [theme, setTheme] = useState(
-    systemTheme === "dark" ? darkTheme : lightTheme
-  );
+  // 폰트 로딩 여부
+  const { fontsLoaded } = useFont();
 
-  // 시스템 테마 변경 시 theme 변수 즉시 변경
-  useEffect(() => {
-    setTheme(systemTheme === "dark" ? darkTheme : lightTheme);
-  }, [systemTheme]);
+  // 폰트 로딩 전 -> 로딩 화면 출력
+  if (!fontsLoaded) {
+    return <Loading />;
+  }
 
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
-        {/* 초기 페이지를 랜딩 페이지로 설정 */}
+        {/* 초기 페이지를 메인 페이지로 설정 */}
         <Stack.Navigator initialRouteName="Main">
           {/* 메인 페이지 */}
           <Stack.Screen

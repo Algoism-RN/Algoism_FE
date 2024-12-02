@@ -1,27 +1,36 @@
-import styled from "styled-components";
+import React from "react";
+import { TouchableWithoutFeedback, Image } from "react-native";
+import Animated from "react-native-reanimated";
 
-const Container = styled.View`
-  width: 100%;
-  height: 100%;
+import { LandingContainer, WelcomeMent, LandingView } from "./styles";
+import { Logo } from "../../components/Logo/Logo";
+import { Slide } from "../../components/Slide/Slide";
+import { BlinkingAnimation } from "../../styles/category/Animation";
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
+export const Landing = ({ setIsStart }) => {
+  const animatedStyle = BlinkingAnimation();
 
-  background-color: ${(props) => props.theme.background};
-`;
-
-const Content = styled.Text`
-  width: fit-content;
-  height: fit-content;
-
-  color: ${(props) => props.theme.fontColor};
-`;
-
-export const Landing = () => {
   return (
-    <Container>
-      <Content>Landing Page</Content>
-    </Container>
+    <TouchableWithoutFeedback onPress={() => setIsStart(true)}>
+      <LandingContainer>
+        <LandingView height="35%">
+          <Image
+            source={require("../../assets/images/BackgroundImg.png")}
+            style={{ width: "100%", height: "100%" }}
+            resizeMode="contain"
+          />
+        </LandingView>
+        <LandingView height="40%" justifyContent="space-between">
+          <Logo fontSize="50px">Algoism?</Logo>
+          <Animated.Text style={animatedStyle}>
+            <WelcomeMent>Click here to get started !</WelcomeMent>
+          </Animated.Text>
+        </LandingView>
+        <LandingView height="25%">
+          <Slide direction={true} />
+          <Slide direction={false} />
+        </LandingView>
+      </LandingContainer>
+    </TouchableWithoutFeedback>
   );
 };
