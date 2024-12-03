@@ -19,6 +19,16 @@ export const useFont = () => {
         // 로딩한 폰트 전역에서 사용 가능하도록 설정
         setCustomText({
           style: {
+            fontFamily: "AllertaStencil",
+          },
+        });
+        setCustomText({
+          style: {
+            fontFamily: "AoboshiOne",
+          },
+        });
+        setCustomText({
+          style: {
             fontFamily: "Pretendard",
           },
         });
