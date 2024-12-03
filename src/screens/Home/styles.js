@@ -9,7 +9,7 @@ export const HomeContainer = styled(ColumnWrapper)`
 
 // Home 화면 내부 상단 부분
 export const UpContainer = styled(ColumnWrapper)`
-  flex: 0.7;
+  flex: 1;
   justify-content: center;
   align-items: center;
 `;
