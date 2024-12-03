@@ -17,7 +17,7 @@ export const Landing = ({ setIsStart }) => {
           <Image
             source={require("../../assets/images/BackgroundImg.png")}
             style={{ width: "100%", height: "100%" }}
-            resizeMode="contain"
+            resizeMode="cover"
           />
         </LandingView>
         <LandingView height="40%" justifyContent="space-between">
