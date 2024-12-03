@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { ActivityIndicator, View } from "react-native";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { ThemeProvider } from "styled-components/native";
 
 import { Loading } from "./components/Loading/Loading";
 import { Main } from "./screens/Main/Main";
-import { useTheme } from "./Hooks/useTheme";
-import { useFont } from "./Hooks/useFont";
+import { useTheme } from "./hooks/useTheme";
+import { useFont } from "./hooks/useFont";
 
 // Stack Navigator 객체 생성
 const Stack = createNativeStackNavigator();

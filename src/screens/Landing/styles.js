@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { ColumnWrapper } from "../../styles/category/Wrapper";
-import { CustomText } from "../../styles/category/Text";
+import { AoboshiOneText } from "../../styles/category/Text";
 
 // Landing 화면 최상위 태그
 export const LandingContainer = styled(ColumnWrapper)`
@@ -9,9 +9,8 @@ export const LandingContainer = styled(ColumnWrapper)`
 `;
 
 // Landing 화면 Welcome 멘트
-export const WelcomeMent = styled(CustomText)`
+export const WelcomeMent = styled(AoboshiOneText)`
   font-size: 15px;
-  font-family: "AoboshiOne";
 `;
 
 // Landing 화면 구역 분할

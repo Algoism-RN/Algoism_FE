@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import Animated, {
+import {
   Easing,
   useAnimatedStyle,
   useSharedValue,
@@ -8,9 +8,9 @@ import Animated, {
 } from "react-native-reanimated";
 
 // Slide 효과
-export const SlideAnimation = (direction) => {
+export const SlideAnimation = (direction, boxWidth) => {
   // direction 값에 따라 초기 좌표 설정
-  const translateX = useSharedValue(direction ? -550 : 550);
+  const translateX = useSharedValue(0);
 
   // 애니메이션 스타일 정의
   const animatedStyle = useAnimatedStyle(() => {
@@ -22,13 +22,22 @@ export const SlideAnimation = (direction) => {
 
   // 애니메이션 실행
   useEffect(() => {
-    translateX.value = withRepeat(
-      // 20초에 1cycle, cycle 마지막에 가속/감속 효과 제거
-      withTiming(0, { duration: 20000, easing: Easing.linear }),
-      -1, // 무한 반복
-      false // 동일 방향으로 반복
-    );
-  }, [translateX]);
+    if (boxWidth > 0) {
+      // boxWidth가 유효할 때만 애니메이션 시작
+      translateX.value = direction
+        ? -boxWidth - 10 // 왼쪽에서 오른쪽으로
+        : boxWidth + 10; // 오른쪽에서 왼쪽으로
+
+      translateX.value = withRepeat(
+        withTiming(0, {
+          duration: 20000,
+          easing: Easing.linear,
+        }),
+        -1, // 무한 반복
+        false // 동일 방향 반복
+      );
+    }
+  }, [translateX, boxWidth, direction]);
 
   return animatedStyle;
 };
