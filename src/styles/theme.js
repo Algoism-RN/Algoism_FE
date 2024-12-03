@@ -1,4 +1,4 @@
-// 라이트 모드
+// 다크 모드
 export const darkTheme = {
   // 배경 색상
   background: "#414141",
@@ -25,7 +25,7 @@ export const darkTheme = {
   tabFontColor: "#FFFFFF",
 };
 
-// 다크 모드
+// 라이트 모드
 export const lightTheme = {
   // 배경 색상
   background: "#F8F8F8",
