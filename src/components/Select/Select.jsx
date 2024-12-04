@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import DropDownPicker from "react-native-dropdown-picker";
 import { SelectContainer } from "./styles";
 
-export const Select = ({ onValueChange }) => {
+export const Select = ({ onChange }) => {
   // Select의 열림/닫힘 상태
   const [open, setOpen] = useState(false);
 
@@ -22,8 +22,8 @@ export const Select = ({ onValueChange }) => {
     // 화면에 출력되는 value 값 업데이트
     setValue(selectedValue);
 
-    if (onValueChange) {
-      onValueChange(selectedValue); // 상위 컴포넌트의 상태도 업데이트
+    if (onChange) {
+      onChange(selectedValue); // 상위 컴포넌트의 상태도 업데이트
     }
   };
 

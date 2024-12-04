@@ -1,14 +1,19 @@
 import { ResultContainer, ResultMentView, ChartsContainer } from "./styles";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native";
 import { Title, ResultMent } from "../../components/String/String";
 import { PageTitleWrapper, Gap } from "../../styles/category/Wrapper";
 import { Button } from "../../components/Button/Button";
 import { Chart } from "../../components/Chart/Chart";
+import { useResultEvent } from "./events";
 
-export const Result = () => {
+// 결과 화면
+export const Result = ({ navigation }) => {
+  const { handleClickAgain } = useResultEvent({ navigation });
+
   return (
     <ResultContainer>
       <SafeAreaView />
+      <Gap height="40px" />
       <PageTitleWrapper>
         <Title text="Result" />
       </PageTitleWrapper>
@@ -21,7 +26,7 @@ export const Result = () => {
         <Chart />
       </ChartsContainer>
       <Gap height="20px" />
-      <Button text="Again" />
+      <Button text="Again" onPress={handleClickAgain} />
     </ResultContainer>
   );
 };

@@ -2,9 +2,9 @@ import React from "react";
 import { ButtonContainer, HintContainer, ButtonText, HintText } from "./styled";
 
 // 회색 버튼
-export const Button = ({ text }) => {
+export const Button = ({ text, onPress }) => {
   return (
-    <ButtonContainer>
+    <ButtonContainer onPress={onPress}>
       <ButtonText>{text}</ButtonText>
     </ButtonContainer>
   );
