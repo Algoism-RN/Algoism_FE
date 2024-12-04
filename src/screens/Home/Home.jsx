@@ -1,22 +1,21 @@
 import React, { useEffect } from "react";
 import { HomeContainer, UpContainer, DownContainer } from "./styles";
 import { Logo } from "../../components/Logo/Logo";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { SafeAreaView } from "react-native";
 import { Select } from "../../components/Select/Select";
 import { Button } from "../../components/Button/Button";
 import { Explain } from "../../components/Explain/Explain";
 import { useHomeEvent } from "./events";
+import { Quiz } from "../Quiz/Quiz";
 
 export const Home = () => {
   // 카테고리 및 카테고리 업데이트 핸들러
-  const { selectedValue, handleValueChange } = useHomeEvent();
+  const { categoryValue, handleSetCategory, isStart, handleClickStart } =
+    useHomeEvent();
 
-  // 변경되는 카테고리 값 확인
-  useEffect(() => {
-    console.log("selectedValue : ", selectedValue);
-  }, [selectedValue]);
-
-  return (
+  return isStart ? (
+    <Quiz category={categoryValue} />
+  ) : (
     <HomeContainer>
       <SafeAreaView />
       <UpContainer>
@@ -24,8 +23,8 @@ export const Home = () => {
         <Explain />
       </UpContainer>
       <DownContainer>
-        <Select onValueChange={handleValueChange} />
-        <Button text={"Start"} />
+        <Select onChange={handleSetCategory} />
+        <Button text={"Start"} onPress={handleClickStart} />
       </DownContainer>
     </HomeContainer>
   );
