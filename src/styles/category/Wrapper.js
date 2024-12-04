@@ -21,3 +21,24 @@ export const ColumnWrapper = styled.View`
 
   background-color: ${(props) => props.theme.background};
 `;
+
+// 페이지 타이틀 View
+export const PageTitleWrapper = styled.View`
+  width: 85%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  background-color: ${(props) => props.theme.background};
+`;
+
+// 여백을 위한 View
+export const Gap = styled.View`
+  width: ${(props) => props.width || "fit-content"};
+  height: ${(props) => props.height || "fit-content"};
+
+  background-color: ${(props) => props.theme.background};
+`;
