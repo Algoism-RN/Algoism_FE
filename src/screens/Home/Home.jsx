@@ -10,11 +10,16 @@ import { Quiz } from "../Quiz/Quiz";
 
 export const Home = () => {
   // 카테고리 및 카테고리 업데이트 핸들러
-  const { categoryValue, handleSetCategory, isStart, handleClickStart } =
-    useHomeEvent();
+  const {
+    categoryValue,
+    handleSetCategory,
+    isStart,
+    setIsStart,
+    handleClickStart,
+  } = useHomeEvent();
 
   return isStart ? (
-    <Quiz category={categoryValue} />
+    <Quiz category={categoryValue} setIsStart={setIsStart} />
   ) : (
     <HomeContainer>
       <SafeAreaView />

@@ -3,6 +3,7 @@ import {
   ResultMentText,
   ChartCategoryText,
   ChartScoreText,
+  AnswerText,
 } from "./styles";
 
 // 페이지 타이틀
@@ -23,4 +24,9 @@ export const ChartCategory = ({ text }) => {
 // 차트 점수
 export const ChartScore = ({ text }) => {
   return <ChartScoreText>{text}</ChartScoreText>;
+};
+
+// 문제 보기
+export const Answer = ({ text }) => {
+  return <AnswerText>{text}</AnswerText>;
 };

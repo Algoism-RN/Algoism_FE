@@ -42,5 +42,11 @@ export const useHomeEvent = () => {
     }
   };
 
-  return { categoryValue, handleSetCategory, isStart, handleClickStart };
+  return {
+    categoryValue,
+    handleSetCategory,
+    isStart,
+    setIsStart,
+    handleClickStart,
+  };
 };

@@ -3,7 +3,7 @@ import { ColumnWrapper, RowWrapper } from "../../styles/category/Wrapper";
 
 // 차트 최상위 태그
 export const ChartContainer = styled(ColumnWrapper)`
-  width: 90%;
+  width: 100%;
   height: 90%;
 
   align-items: center;
@@ -46,7 +46,7 @@ export const Bar = styled.View`
 
 // Bar를 감싸는 컨테이너
 export const BarContainer = styled(ColumnWrapper)`
-  width: 50px;
+  width: 20%;
   height: fit-content;
 
   align-items: center;
