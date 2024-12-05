@@ -17,16 +17,24 @@ export const ResultMentText = styled(AoboshiOneText)`
 
 // 차트 카테고리 텍스트
 export const ChartCategoryText = styled(PretendardText)`
-  width: 50px;
+  width: 20%;
   font-size: 13px;
 
   text-align: center;
 `;
 
 // 차트 점수 텍스트
-export const ChartScoreText = styled(AllertaStencilText)`
+export const ChartScoreText = styled(AoboshiOneText)`
   width: 50px;
   font-size: 13px;
 
   text-align: center;
+`;
+
+// 문제 보기 텍스트
+export const AnswerText = styled(AoboshiOneText)`
+  width: fit-content;
+  height: fit-content;
+
+  font-size: 15px;
 `;

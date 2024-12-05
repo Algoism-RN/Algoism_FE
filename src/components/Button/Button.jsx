@@ -11,9 +11,9 @@ export const Button = ({ text, onPress }) => {
 };
 
 // 도움말 버튼
-export const Hint = () => {
+export const Hint = ({ onPress }) => {
   return (
-    <HintContainer>
+    <HintContainer onPress={onPress}>
       <HintText>?</HintText>
     </HintContainer>
   );
