@@ -43,6 +43,7 @@ export const useHomeEvent = () => {
   };
 
   return {
+    setCategory,
     categoryValue,
     handleSetCategory,
     isStart,

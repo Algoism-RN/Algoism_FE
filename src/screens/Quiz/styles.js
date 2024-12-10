@@ -18,6 +18,10 @@ export const QuestionBox = styled.View`
   width: 85%;
   height: 250px;
 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 15px;
 `;

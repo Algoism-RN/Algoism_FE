@@ -36,7 +36,7 @@ export const Select = ({ onChange }) => {
         setOpen={setOpen} // 열리거나 닫힐 경우 open 값 토글
         setValue={handleValueChange} // 값이 변할 때 업데이트 함수 호출
         setItems={setItems}
-        placeholder="Select"
+        placeholder="Category"
         style={{
           width: "100%",
           borderWidth: 1,

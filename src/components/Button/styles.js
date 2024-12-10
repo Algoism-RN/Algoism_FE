@@ -22,17 +22,15 @@ export const ButtonText = styled(AoboshiOneText)`
 
 // 도움말 버튼 최상위 태그
 export const HintContainer = styled.TouchableOpacity`
-  width: 30px;
-  height: 30px;
+  width: 25px;
+  height: 25px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 
-  padding: 5px 5px;
-
   border-radius: 50%;
-  border: 1px solid ${(props) => props.theme.borderColor};
+  border: 1.5px solid ${(props) => props.theme.borderColor};
 
   background-color: transparent;
 `;

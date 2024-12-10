@@ -1,9 +1,5 @@
 import styled from "styled-components";
-import {
-  AllertaStencilText,
-  AoboshiOneText,
-  PretendardText,
-} from "../../styles/category/Text";
+import { AoboshiOneText, PretendardText } from "../../styles/category/Text";
 
 // 페이지 타이틀 텍스트
 export const TitleText = styled(AoboshiOneText)`
@@ -32,7 +28,7 @@ export const ChartScoreText = styled(AoboshiOneText)`
 `;
 
 // 문제 보기 텍스트
-export const AnswerText = styled(AoboshiOneText)`
+export const AnswerText = styled(PretendardText)`
   width: fit-content;
   height: fit-content;
 

@@ -1,4 +1,5 @@
-import { SafeAreaView } from "react-native";
+import { useEffect } from "react";
+import { SafeAreaView, Image } from "react-native";
 import {
   QuizScrollView,
   QuizContainer,
@@ -11,10 +12,31 @@ import { Title, Answer } from "../../components/String/String";
 import { Hint } from "../../components/Button/Button";
 import { useQuizEvent } from "./events";
 import { Progress } from "../../components/Progress/Progress";
+import { Loading } from "../../components/Loading/Loading";
 
 // 퀴즈 화면
-export const Quiz = ({ category, setIsStart }) => {
-  const { handleClickEnd } = useQuizEvent({ setIsStart });
+export const Quiz = ({ category, setIsStart, navigation }) => {
+  const {
+    randomQ,
+    handleGetQuestion,
+    solveNum,
+    handleClickAnswer,
+    handleComplete,
+  } = useQuizEvent({
+    setIsStart,
+    category,
+    navigation,
+  });
+
+  // 랜덤 문제 10개 로딩
+  useEffect(() => {
+    handleGetQuestion();
+  }, []);
+
+  // 마지막 문제 풀이 완료 시 결과 페이지 이동
+  useEffect(() => {
+    handleComplete();
+  }, [solveNum]);
 
   return (
     <QuizScrollView>
@@ -23,26 +45,57 @@ export const Quiz = ({ category, setIsStart }) => {
         <Gap height="40px" />
         <PageTitleWrapper>
           <Title text={category} />
-          <Hint onPress={handleClickEnd} />
+          <Hint />
         </PageTitleWrapper>
         <Gap height="30px" />
-        <Progress width="20%" />
+        <Progress width={solveNum} />
         <Gap height="30px" />
-        <QuestionBox></QuestionBox>
+        <QuestionBox>
+          {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
+          {randomQ && solveNum < 10 ? (
+            <Image
+              source={{ uri: randomQ[solveNum].question_path }}
+              style={{ width: "85%", height: "80%" }}
+              resizeMode="contain"
+            />
+          ) : (
+            <Loading />
+          )}
+        </QuestionBox>
         <Gap height="30px" />
         <AnswerContainer>
-          <AnswerBox>
-            <Answer text={"1"} />
-          </AnswerBox>
-          <AnswerBox>
-            <Answer text={"2"} />
-          </AnswerBox>
-          <AnswerBox>
-            <Answer text={"3"} />
-          </AnswerBox>
-          <AnswerBox>
-            <Answer text={"4"} />
-          </AnswerBox>
+          {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
+          {randomQ && solveNum < 10 ? (
+            <AnswerBox onPress={handleClickAnswer}>
+              <Answer text={randomQ[solveNum].choice1} />
+            </AnswerBox>
+          ) : (
+            <Loading />
+          )}
+          {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
+          {randomQ && solveNum < 10 ? (
+            <AnswerBox onPress={handleClickAnswer}>
+              <Answer text={randomQ[solveNum].choice2} />
+            </AnswerBox>
+          ) : (
+            <Loading />
+          )}
+          {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
+          {randomQ && solveNum < 10 ? (
+            <AnswerBox onPress={handleClickAnswer}>
+              <Answer text={randomQ[solveNum].choice3} />
+            </AnswerBox>
+          ) : (
+            <Loading />
+          )}
+          {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
+          {randomQ && solveNum < 10 ? (
+            <AnswerBox onPress={handleClickAnswer}>
+              <Answer text={randomQ[solveNum].choice4} />
+            </AnswerBox>
+          ) : (
+            <Loading />
+          )}
         </AnswerContainer>
         <Gap height="30px" />
       </QuizContainer>
