@@ -8,9 +8,10 @@ import { Explain } from "../../components/Explain/Explain";
 import { useHomeEvent } from "./events";
 import { Quiz } from "../Quiz/Quiz";
 
-export const Home = () => {
+export const Home = ({ navigation }) => {
   // 카테고리 및 카테고리 업데이트 핸들러
   const {
+    setCategory,
     categoryValue,
     handleSetCategory,
     isStart,
@@ -18,8 +19,19 @@ export const Home = () => {
     handleClickStart,
   } = useHomeEvent();
 
+  // Quiz 화면에서 Home 화면으로 넘어왔을 때 저장되어있는 category 값을 초기화
+  useEffect(() => {
+    if (!isStart) {
+      setCategory(null);
+    }
+  }, [isStart]);
+
   return isStart ? (
-    <Quiz category={categoryValue} setIsStart={setIsStart} />
+    <Quiz
+      category={categoryValue}
+      setIsStart={setIsStart}
+      navigation={navigation}
+    />
   ) : (
     <HomeContainer>
       <SafeAreaView />
