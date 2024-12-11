@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import {
   ChartContainer,
   ChartBarView,
@@ -8,42 +9,39 @@ import {
 import { ChartCategory, ChartScore } from "../../components/String/String";
 import { Gap } from "../../styles/category/Wrapper";
 
-export const Chart = () => {
+export const Chart = ({ result }) => {
+  // 카테고리별 평균
+  const { pythonAvg, javaAvg, cAvg, csAvg } = result;
+
   return (
     <ChartContainer>
       {/* 1점당 20px로 환산 -> 최대 200px */}
       <ChartBarView>
         <BarContainer>
-          <ChartScore text="8" />
+          <ChartScore text={pythonAvg} />
           <Gap height="10px" />
-          <Bar height="160px" />
+          <Bar height={pythonAvg} />
         </BarContainer>
         <BarContainer>
-          <ChartScore text="5" />
+          <ChartScore text={javaAvg} />
           <Gap height="10px" />
-          <Bar height="100px" />
+          <Bar height={javaAvg} />
         </BarContainer>
         <BarContainer>
-          <ChartScore text="10" />
+          <ChartScore text={cAvg} />
           <Gap height="10px" />
-          <Bar height="200px" />
+          <Bar height={cAvg} />
         </BarContainer>
         <BarContainer>
-          <ChartScore text="2" />
+          <ChartScore text={csAvg} />
           <Gap height="10px" />
-          <Bar height="40px" />
-        </BarContainer>
-        <BarContainer>
-          <ChartScore text="6" />
-          <Gap height="10px" />
-          <Bar height="120px" />
+          <Bar height={csAvg} />
         </BarContainer>
       </ChartBarView>
       <ChartCategoryView>
-        <ChartCategory text="C" />
-        <ChartCategory text="Java" />
         <ChartCategory text="Python" />
-        <ChartCategory text="Javascript" />
+        <ChartCategory text="Java" />
+        <ChartCategory text="C" />
         <ChartCategory text="CS" />
       </ChartCategoryView>
     </ChartContainer>
