@@ -23,7 +23,7 @@ export const ChartCategory = ({ text }) => {
 
 // 차트 점수
 export const ChartScore = ({ text }) => {
-  return <ChartScoreText>{text}</ChartScoreText>;
+  return <ChartScoreText>{text * 10}</ChartScoreText>;
 };
 
 // 문제 보기

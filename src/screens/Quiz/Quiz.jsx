@@ -66,7 +66,11 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
         <AnswerContainer>
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
           {randomQ && solveNum < 10 ? (
-            <AnswerBox onPress={handleClickAnswer}>
+            <AnswerBox
+              onPress={() =>
+                handleClickAnswer({ num: 1, answer: randomQ[solveNum].answer })
+              }
+            >
               <Answer text={randomQ[solveNum].choice1} />
             </AnswerBox>
           ) : (
@@ -74,7 +78,11 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
           )}
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
           {randomQ && solveNum < 10 ? (
-            <AnswerBox onPress={handleClickAnswer}>
+            <AnswerBox
+              onPress={() =>
+                handleClickAnswer({ num: 2, answer: randomQ[solveNum].answer })
+              }
+            >
               <Answer text={randomQ[solveNum].choice2} />
             </AnswerBox>
           ) : (
@@ -82,7 +90,11 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
           )}
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
           {randomQ && solveNum < 10 ? (
-            <AnswerBox onPress={handleClickAnswer}>
+            <AnswerBox
+              onPress={() =>
+                handleClickAnswer({ num: 3, answer: randomQ[solveNum].answer })
+              }
+            >
               <Answer text={randomQ[solveNum].choice3} />
             </AnswerBox>
           ) : (
@@ -90,9 +102,18 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
           )}
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
           {randomQ && solveNum < 10 ? (
-            <AnswerBox onPress={handleClickAnswer}>
+            <AnswerBox
+              onPress={() =>
+                handleClickAnswer({ num: 4, answer: randomQ[solveNum].answer })
+              }
+            >
               <Answer text={randomQ[solveNum].choice4} />
             </AnswerBox>
+          ) : (
+            <Loading />
+          )}
+          {randomQ && solveNum < 10 ? (
+            <Title text={randomQ[solveNum].answer} />
           ) : (
             <Loading />
           )}

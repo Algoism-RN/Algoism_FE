@@ -16,9 +16,6 @@ export const ChartBarView = styled(RowWrapper)`
 
   align-items: flex-end;
   justify-content: space-between;
-
-  border-bottom-width: 1px;
-  border-bottom-color: ${(props) => props.theme.borderColor};
 `;
 
 // 하단 카테고리 View
@@ -27,14 +24,17 @@ export const ChartCategoryView = styled(RowWrapper)`
 
   align-items: center;
   justify-content: space-between;
+
+  border-top-width: 1px;
+  border-top-color: ${(props) => props.theme.borderColor};
 `;
 
 // 막대 그래프를 구성하는 Bar
 export const Bar = styled.View`
   width: 30px;
-  height: ${(props) => props.height};
+  height: ${(props) => `${props.height * 25}px`};
 
-  padding: 10px 10px;
+  padding: 5px 10px;
 
   border: 1px solid ${(props) => props.theme.borderColor};
   border-bottom-width: 0px;
