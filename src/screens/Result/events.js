@@ -36,6 +36,26 @@ export const useResultEvent = ({ navigation }) => {
     setCsAvg(getAverage({ array: csData }));
   };
 
+  // 결과 화면 Comment
+  const [comment, setComment] = useState("");
+
+  // 결과 화면 Comment 설정
+  const handleComment = () => {
+    // 모든 카테고리의 평균 합계
+    const total = (pythonAvg + javaAvg + cAvg + csAvg) * 10;
+
+    // 총 평균 합계의 평균 계산
+    const totalAvg = total / 4;
+
+    if (totalAvg > 80 && totalAvg <= 100) {
+      setComment("What a score !");
+    } else if (totalAvg > 60 && totalAvg <= 80) {
+      setComment("Keep going :)");
+    } else {
+      setComment("You are idiot ...");
+    }
+  };
+
   return {
     handleClickAgain,
     pythonData,
@@ -48,5 +68,7 @@ export const useResultEvent = ({ navigation }) => {
     csAvg,
     handleGetData,
     handleCalcAverage,
+    comment,
+    handleComment,
   };
 };
