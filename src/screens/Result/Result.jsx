@@ -22,6 +22,8 @@ export const Result = ({ navigation }) => {
     csAvg,
     handleGetData,
     handleCalcAverage,
+    comment,
+    handleComment,
   } = useResultEvent({
     navigation,
   });
@@ -36,6 +38,7 @@ export const Result = ({ navigation }) => {
   // 카테고리별 결과에 변화가 있으면, 평균값 조회
   useEffect(() => {
     handleCalcAverage();
+    handleComment();
   }, [pythonData, javaData, , cData, csData]);
 
   return (
@@ -47,7 +50,7 @@ export const Result = ({ navigation }) => {
       </PageTitleWrapper>
       <Gap height="60px" />
       <ResultMentView>
-        <ResultMent text="You are idiot ..." />
+        <ResultMent text={comment} />
       </ResultMentView>
       <Gap height="20px" />
       <ChartsContainer>
