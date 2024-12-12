@@ -47,6 +47,7 @@ export const useResultEvent = ({ navigation }) => {
     // 총 평균 합계의 평균 계산
     const totalAvg = total / 4;
 
+    // 총 평균값에 따라 Comment 설정
     if (totalAvg > 80 && totalAvg <= 100) {
       setComment("What a score !");
     } else if (totalAvg > 60 && totalAvg <= 80) {

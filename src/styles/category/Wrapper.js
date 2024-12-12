@@ -1,5 +1,11 @@
 import styled from "styled-components";
 
+// 공통 사용 ScrollView
+export const AlgoismScrollView = styled.ScrollView`
+  flex: 1;
+  background-color: ${(props) => props.theme.background};
+`;
+
 // 가로 정렬 Full View
 export const RowWrapper = styled.View`
   width: 100%;

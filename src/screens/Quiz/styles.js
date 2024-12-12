@@ -1,12 +1,6 @@
 import styled from "styled-components";
 import { ColumnWrapper } from "../../styles/category/Wrapper";
 
-// ScrollView
-export const QuizScrollView = styled.ScrollView`
-  flex-grow: 1;
-  background-color: ${(props) => props.theme.background};
-`;
-
 // Quiz Screen 최상위 태그
 export const QuizContainer = styled(ColumnWrapper)`
   align-items: center;

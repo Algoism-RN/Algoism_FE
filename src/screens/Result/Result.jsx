@@ -31,6 +31,7 @@ export const Result = ({ navigation }) => {
   // Result Tab이 Focus 될 때마다 실행
   useFocusEffect(
     useCallback(() => {
+      // Async Storage에 저장된 카테고리별 데이터 조회
       handleGetData();
     }, [])
   );
