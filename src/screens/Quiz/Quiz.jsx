@@ -2,12 +2,13 @@ import { useEffect } from "react";
 import { SafeAreaView, Image } from "react-native";
 import {
   QuizContainer,
-  QuestionBox,
+  QuestionImageBox,
   AnswerContainer,
   AnswerBox,
+  QuestionBox,
 } from "./styles";
 import { PageTitleWrapper, Gap } from "../../styles/category/Wrapper";
-import { Title, Answer } from "../../components/String/String";
+import { Title, Answer, Question } from "../../components/String/String";
 import { Hint } from "../../components/Button/Button";
 import { useQuizEvent } from "./events";
 import { Progress } from "../../components/Progress/Progress";
@@ -52,8 +53,17 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
         </PageTitleWrapper>
         <Gap height="30px" />
         <Progress width={solveNum} />
-        <Gap height="30px" />
-        <QuestionBox>
+        <Gap height="25px" />
+        {randomQ && solveNum < 10 ? (
+          <QuestionBox>
+            <Question text={`${solveNum + 1}. `} />
+            <Question text={randomQ[solveNum].title} />
+          </QuestionBox>
+        ) : (
+          <Loading />
+        )}
+        <Gap height="15px" />
+        <QuestionImageBox>
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
           {randomQ && solveNum < 10 ? (
             <Image
@@ -64,7 +74,7 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
           ) : (
             <Loading />
           )}
-        </QuestionBox>
+        </QuestionImageBox>
         <Gap height="30px" />
         <AnswerContainer>
           {/* 랜덤 10문제 데이터가 있으며, 10문제를 아직 다 안 푼 경우 */}
@@ -122,7 +132,7 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
         <HintModal
           visible={visible}
           setVisible={setVisible}
-          hint={randomQ[solveNum].answer}
+          hint={randomQ[solveNum].hint}
         />
       )}
     </AlgoismScrollView>

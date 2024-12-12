@@ -27,6 +27,14 @@ export const ChartScoreText = styled(AoboshiOneText)`
   text-align: center;
 `;
 
+// 질문 텍스트
+export const QuestionText = styled(PretendardText)`
+  width: fit-content;
+  height: fit-content;
+
+  font-size: 18px;
+`;
+
 // 문제 보기 텍스트
 export const AnswerText = styled(PretendardText)`
   width: fit-content;

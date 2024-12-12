@@ -8,7 +8,7 @@ export const QuizContainer = styled(ColumnWrapper)`
 `;
 
 // 문제 사진 들어갈 태그
-export const QuestionBox = styled.View`
+export const QuestionImageBox = styled.View`
   width: 85%;
   height: 250px;
 
@@ -18,6 +18,19 @@ export const QuestionBox = styled.View`
 
   border: 1px solid ${(props) => props.theme.borderColor};
   border-radius: 15px;
+`;
+
+// 질문 태그
+export const QuestionBox = styled.View`
+  width: 85%;
+  height: fit-content;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: start;
+
+  background-color: transparent;
 `;
 
 // 정답 보기들의 부모 태그
