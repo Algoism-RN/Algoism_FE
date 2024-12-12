@@ -48,9 +48,9 @@ export const useResultEvent = ({ navigation }) => {
     const totalAvg = total / 4;
 
     // 총 평균값에 따라 Comment 설정
-    if (totalAvg > 80 && totalAvg <= 100) {
+    if (totalAvg > 85 && totalAvg <= 100) {
       setComment("What a score !");
-    } else if (totalAvg > 60 && totalAvg <= 80) {
+    } else if (totalAvg > 70 && totalAvg <= 85) {
       setComment("Keep going :)");
     } else {
       setComment("You are idiot ...");

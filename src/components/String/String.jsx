@@ -3,6 +3,7 @@ import {
   ResultMentText,
   ChartCategoryText,
   ChartScoreText,
+  QuestionText,
   AnswerText,
 } from "./styles";
 
@@ -24,6 +25,11 @@ export const ChartCategory = ({ text }) => {
 // 차트 점수
 export const ChartScore = ({ text }) => {
   return <ChartScoreText>{text * 10}</ChartScoreText>;
+};
+
+// 질문
+export const Question = ({ text }) => {
+  return <QuestionText>{text}</QuestionText>;
 };
 
 // 문제 보기
