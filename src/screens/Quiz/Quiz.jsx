@@ -1,7 +1,6 @@
 import { useEffect } from "react";
 import { SafeAreaView, Image } from "react-native";
 import {
-  QuizScrollView,
   QuizContainer,
   QuestionBox,
   AnswerContainer,
@@ -13,6 +12,8 @@ import { Hint } from "../../components/Button/Button";
 import { useQuizEvent } from "./events";
 import { Progress } from "../../components/Progress/Progress";
 import { Loading } from "../../components/Loading/Loading";
+import { HintModal } from "../../components/Modal/Modal";
+import { AlgoismScrollView } from "../../styles/category/Wrapper";
 
 // 퀴즈 화면
 export const Quiz = ({ category, setIsStart, navigation }) => {
@@ -22,6 +23,8 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
     solveNum,
     handleClickAnswer,
     handleComplete,
+    visible,
+    setVisible,
   } = useQuizEvent({
     setIsStart,
     category,
@@ -39,13 +42,13 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
   }, [solveNum]);
 
   return (
-    <QuizScrollView>
+    <AlgoismScrollView>
       <QuizContainer>
         <SafeAreaView />
         <Gap height="40px" />
         <PageTitleWrapper>
           <Title text={category} />
-          <Hint />
+          <Hint setVisible={setVisible} />
         </PageTitleWrapper>
         <Gap height="30px" />
         <Progress width={solveNum} />
@@ -112,14 +115,16 @@ export const Quiz = ({ category, setIsStart, navigation }) => {
           ) : (
             <Loading />
           )}
-          {randomQ && solveNum < 10 ? (
-            <Title text={randomQ[solveNum].answer} />
-          ) : (
-            <Loading />
-          )}
         </AnswerContainer>
         <Gap height="30px" />
       </QuizContainer>
-    </QuizScrollView>
+      {randomQ && solveNum < 10 && (
+        <HintModal
+          visible={visible}
+          setVisible={setVisible}
+          hint={randomQ[solveNum].answer}
+        />
+      )}
+    </AlgoismScrollView>
   );
 };

@@ -63,11 +63,16 @@ export const useQuizEvent = ({ setIsStart, category, navigation }) => {
     }
   };
 
+  // Modal show & hide 제어
+  const [visible, setVisible] = useState(false);
+
   return {
     randomQ,
     handleGetQuestion,
     solveNum,
     handleClickAnswer,
     handleComplete,
+    visible,
+    setVisible,
   };
 };
